@@ -1,0 +1,5 @@
+---
+# tasks file for nfs-client
+- import_tasks: configure_env.yaml
+- import_tasks: install.yaml
+- import_tasks: mount_fs.yaml

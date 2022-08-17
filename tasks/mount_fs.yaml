@@ -1,0 +1,13 @@
+- name: Create NFS mountpoint
+  become: yes
+  file:
+    path: /mnt/nfs
+    state: directory
+- name: Mount NFS volume
+  become: yes
+  ansible.posix.mount:
+    src: "{{ server_host }}:/srv/nfs"
+    path: /mnt/nfs
+    opts: "{{ nfs_mount_opts }}"
+    state: mounted
+    fstype: nfs
